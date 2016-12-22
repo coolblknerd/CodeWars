@@ -1,0 +1,30 @@
+// Given an array of integers, remove the smallest value. If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list.
+
+// Don't change the order of the elements that are left.
+
+----------------------
+Original Solution
+----------------------
+
+function removeSmallest(numbers) {
+  var min = Math.min.apply(Math, numbers);
+  
+  for(var i = 0; i <= numbers.length; i++) {
+    if(numbers[i] === min) {
+      numbers.splice(i, 1);
+      break;
+    }
+  }
+  
+  return numbers;
+}
+
+----------------------
+Refactored Solution
+----------------------
+
+function removeSmallest(numbers) {
+  var min = Math.min.apply(Math, numbers);
+  numbers.splice(numbers.indexOf(min), 1);
+  return numbers;
+}

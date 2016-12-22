@@ -1,0 +1,36 @@
+// Build Tower by the following given argument:
+number of floors (integer and always greater than 0).
+
+------------------------------
+Original Solution
+------------------------------
+
+function towerBuilder(nFloors) {
+  // Build the building, leaving the floors empty
+  var tower = new Array(nFloors);
+  
+  // Fill in the floors with stars
+  for(var i = 1; i <= nFloors; i++) {
+    var form = (2 * i) - 1,
+        starme = '*'.repeat(form);
+    
+    tower[i-1] = starme;
+  }
+  
+  // Add the correct space to each floor dependent on the bottom floor length
+  for(var j = 0; j < nFloors; j++) {
+    
+    // How long should each floor be?
+    var maxLength = tower[nFloors - 1].length;
+    
+    // If the floor isn't long enough fill it in properly
+    if(tower[j].length !== maxLength) {
+      var addSpace = (maxLength - tower[j].length)/2,
+          addStar = tower[j].length;
+      tower[j] = ' '.repeat(addSpace) + '*'.repeat(addStar) + ' '.repeat(addSpace);
+    }
+  }
+  
+  return tower;
+}
+
