@@ -1,0 +1,25 @@
+// Your objective is to complete a recursive function reverse() that receives str as String and returns the same string in reverse order
+
+// Rules:
+
+// reverse function should be executed only N times. N = length of the input string
+// helper functions are not allowed
+// changing the signature of the function is not allowed
+
+
+-------------------
+Original Solution
+-------------------
+
+function reverse(str) {
+ if (str.length < 2) return str;
+ return reverse(str.substr(1)) + str.charAt(0);
+}
+
+-----------------
+Notes
+-----------------
+
+// Had to get some help from the internet since I kept creating a recursive function which called
+from a array I created outside of the function.  This caused a lot of issues later on.  The answer
+I found was on a reddit forum and I had to play with each part of it until I got a solid understanding of what was going on underneath the hood.

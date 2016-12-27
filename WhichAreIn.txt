@@ -1,0 +1,33 @@
+// Level: 6 kyu
+
+// Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+
+---------------------
+Original Solution
+---------------------
+
+function inArray(array1,array2){
+  var final = [];
+  
+  // Loop through the first array
+  array1.forEach(function(item){
+    // Loop through the 2nd array to check against
+    for(var i = 0; i < array2.length; i++) {
+      // Does this value contain the value from the inital array?
+      if(array2[i].includes(item)) {
+        // If so, do we already have it in our array?
+        if(final.includes(item)) {
+          break;
+        } else {
+          final.push(item);
+        }
+      }
+    }
+  });
+  
+  return final.sort();
+}
+
+
+
+
